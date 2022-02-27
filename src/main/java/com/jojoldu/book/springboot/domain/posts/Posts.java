@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import javax.persistence.*;
 // 기본값으로 클래스의 카멜케이스 이름을 언더스코어 네이밍으로 테이블이름을 매칭합니다.
 // ex. SalesManager.java -> sales_manager table
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     // 테이블의 PK필드를 나타냅니다.
     @Id
@@ -42,6 +43,11 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 }
 
